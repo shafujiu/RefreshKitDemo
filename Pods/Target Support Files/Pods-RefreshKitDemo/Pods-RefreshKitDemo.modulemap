@@ -1,0 +1,6 @@
+framework module Pods_RefreshKitDemo {
+  umbrella header "Pods-RefreshKitDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

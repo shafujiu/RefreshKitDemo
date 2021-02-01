@@ -1,0 +1,20 @@
+PODS:
+  - MJRefresh (3.5.0)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - MJRefresh
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - MJRefresh
+    - SnapKit
+
+SPEC CHECKSUMS:
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 92cbdd284f5ad0ba8d6ffcae77d5c5c40fe07a44
+
+COCOAPODS: 1.10.0
