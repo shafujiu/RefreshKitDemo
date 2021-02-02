@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6E4A3346E92EA73C3E0D8B8D /* Pods_RefreshKitDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959DC24C23B55A1B1A00E2C8 /* Pods_RefreshKitDemoTests.framework */; };
 		798D738156ECD5F18A0602EE /* Pods_RefreshKitDemo_RefreshKitDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56A3C14BFD1C6547A11F0578 /* Pods_RefreshKitDemo_RefreshKitDemoUITests.framework */; };
+		814D6A8125C950E1001A06AE /* XTRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814D6A8025C950E1001A06AE /* XTRefresh.swift */; };
 		814FB74C25C3B7030026D1B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FB74B25C3B7030026D1B7 /* AppDelegate.swift */; };
 		814FB75025C3B7030026D1B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FB74F25C3B7030026D1B7 /* ViewController.swift */; };
 		814FB75325C3B7030026D1B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814FB75125C3B7030026D1B7 /* Main.storyboard */; };
@@ -17,9 +18,7 @@
 		814FB76325C3B7060026D1B7 /* RefreshKitDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FB76225C3B7060026D1B7 /* RefreshKitDemoTests.swift */; };
 		814FB76E25C3B7060026D1B7 /* RefreshKitDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FB76D25C3B7060026D1B7 /* RefreshKitDemoUITests.swift */; };
 		814FB79425C3D6920026D1B7 /* RefreshTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FB79325C3D6920026D1B7 /* RefreshTableView.swift */; };
-		815958D625C3DDE700FC01E6 /* UIView+Blank.m in Sources */ = {isa = PBXBuildFile; fileRef = 815958D525C3DDE700FC01E6 /* UIView+Blank.m */; };
-		81FC8B0225C7E3EA004BFF37 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC8B0125C7E3EA004BFF37 /* EmptyView.swift */; };
-		81FC8B0F25C7FFFA004BFF37 /* UIView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC8B0E25C7FFFA004BFF37 /* UIView+Empty.swift */; };
+		81FC8B0225C7E3EA004BFF37 /* XTEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC8B0125C7E3EA004BFF37 /* XTEmptyView.swift */; };
 		DD447DFACA8AD18856FAC5E8 /* Pods_RefreshKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53EE0724F648465C5E727DE5 /* Pods_RefreshKitDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +45,7 @@
 		56A3C14BFD1C6547A11F0578 /* Pods_RefreshKitDemo_RefreshKitDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefreshKitDemo_RefreshKitDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BABE3C10A105D39907C45EF /* Pods-RefreshKitDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshKitDemoTests.release.xcconfig"; path = "Target Support Files/Pods-RefreshKitDemoTests/Pods-RefreshKitDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		7BEE5BB1B12236EEFE982AC5 /* Pods-RefreshKitDemo-RefreshKitDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshKitDemo-RefreshKitDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-RefreshKitDemo-RefreshKitDemoUITests/Pods-RefreshKitDemo-RefreshKitDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		814D6A8025C950E1001A06AE /* XTRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XTRefresh.swift; sourceTree = "<group>"; };
 		814FB74825C3B7030026D1B7 /* RefreshKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefreshKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		814FB74B25C3B7030026D1B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		814FB74F25C3B7030026D1B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,10 +61,7 @@
 		814FB76F25C3B7060026D1B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		814FB79325C3D6920026D1B7 /* RefreshTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshTableView.swift; sourceTree = "<group>"; };
 		814FB79C25C3D6B90026D1B7 /* RefreshKitDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RefreshKitDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		815958D425C3DDE700FC01E6 /* UIView+Blank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Blank.h"; sourceTree = "<group>"; };
-		815958D525C3DDE700FC01E6 /* UIView+Blank.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Blank.m"; sourceTree = "<group>"; };
-		81FC8B0125C7E3EA004BFF37 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
-		81FC8B0E25C7FFFA004BFF37 /* UIView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Empty.swift"; sourceTree = "<group>"; };
+		81FC8B0125C7E3EA004BFF37 /* XTEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XTEmptyView.swift; sourceTree = "<group>"; };
 		959DC24C23B55A1B1A00E2C8 /* Pods_RefreshKitDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefreshKitDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD3D6E011E67616042D5A84 /* Pods-RefreshKitDemo-RefreshKitDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshKitDemo-RefreshKitDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-RefreshKitDemo-RefreshKitDemoUITests/Pods-RefreshKitDemo-RefreshKitDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D84C182463FB42CBFF0D7278 /* Pods-RefreshKitDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshKitDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-RefreshKitDemoTests/Pods-RefreshKitDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,10 +154,9 @@
 		814FB79825C3D6970026D1B7 /* Refresh */ = {
 			isa = PBXGroup;
 			children = (
-				815958D425C3DDE700FC01E6 /* UIView+Blank.h */,
-				815958D525C3DDE700FC01E6 /* UIView+Blank.m */,
 				814FB79325C3D6920026D1B7 /* RefreshTableView.swift */,
 				814FB79C25C3D6B90026D1B7 /* RefreshKitDemo-Bridging-Header.h */,
+				814D6A8025C950E1001A06AE /* XTRefresh.swift */,
 			);
 			path = Refresh;
 			sourceTree = "<group>";
@@ -168,8 +164,7 @@
 		81FC8AF325C7E303004BFF37 /* Empty */ = {
 			isa = PBXGroup;
 			children = (
-				81FC8B0125C7E3EA004BFF37 /* EmptyView.swift */,
-				81FC8B0E25C7FFFA004BFF37 /* UIView+Empty.swift */,
+				81FC8B0125C7E3EA004BFF37 /* XTEmptyView.swift */,
 			);
 			path = Empty;
 			sourceTree = "<group>";
@@ -436,11 +431,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81FC8B0F25C7FFFA004BFF37 /* UIView+Empty.swift in Sources */,
 				814FB75025C3B7030026D1B7 /* ViewController.swift in Sources */,
-				81FC8B0225C7E3EA004BFF37 /* EmptyView.swift in Sources */,
-				815958D625C3DDE700FC01E6 /* UIView+Blank.m in Sources */,
+				81FC8B0225C7E3EA004BFF37 /* XTEmptyView.swift in Sources */,
 				814FB74C25C3B7030026D1B7 /* AppDelegate.swift in Sources */,
+				814D6A8125C950E1001A06AE /* XTRefresh.swift in Sources */,
 				814FB79425C3D6920026D1B7 /* RefreshTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,13 +1,91 @@
 //
-//  EmptyView.swift
+//  XTEmptyView.swift
 //  RefreshKitDemo
 //
 //  Created by Shafujiu on 2021/2/1.
-//
+//  XTEmptyView 不推荐直接使用 通过扩展使用空页面方法 showTableEmpty,   dismissEmpty 配对使用
 
 import UIKit
-import SnapKit
 
+fileprivate var emptyViewKey :Void?
+
+extension UIView {
+    /// 展示空页面
+    /// - Parameters:
+    ///   - image: 空页面图片
+    ///   - title: 标题
+    ///   - btnTitle: 按钮标题
+    ///   - offsetY: 居中后的offsetY
+    ///   - tapAction: 空页面点击
+    ///   - btnClickAction: 按钮点击
+    ///   - updateFrameBlock: 可以通过该方法修正frame 默认frame覆盖在当前view上
+    func showEmpty(with image: UIImage?, title: String?, btnTitle: String? = nil, offsetY: CGFloat = 0, tapAction: (()->())?, btnClickAction: (()->())?, updateFrameBlock: ((CGRect, UIView)->(CGRect))? = nil) {
+        // 添加新的
+        let emptyView = XTEmptyView(image: image, title: title, btnTitle: btnTitle, offsetY:  offsetY, emptyTapAction: tapAction, btnClickAction: btnClickAction)
+        self.showEmpty(emptyView, updateFrameBlock: updateFrameBlock)
+    }
+    
+    func showEmpty(_ emptyView: XTEmptyView, updateFrameBlock: ((CGRect, UIView)->(CGRect))? = nil) {
+        // 移除旧的
+        let empty = objc_getAssociatedObject(self, &emptyViewKey) as? XTEmptyView
+        empty?.removeFromSuperview()
+        // 添加新的
+        self.addSubview(emptyView)
+        self.sendSubviewToBack(emptyView)
+        
+        objc_setAssociatedObject(self, &emptyViewKey, emptyView, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        let y: CGFloat = 0
+        let height = self.frame.height
+        let width = self.frame.width
+        var rect = CGRect(x: 0, y: y, width: width, height: height)
+        rect = updateFrameBlock?(rect, self) ?? rect
+        emptyView.frame = rect
+    }
+    
+    /// 隐藏当前view添加的空页面
+    func dismissEmpty() {
+        let emptyView = objc_getAssociatedObject(self, &emptyViewKey) as? XTEmptyView
+        emptyView?.removeFromSuperview()
+        objc_setAssociatedObject(self, &emptyViewKey, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+    }
+}
+
+extension UITableView {
+    
+    /// tableView空页面
+    /// - Parameters:
+    ///   - image: image description
+    ///   - title: title description
+    ///   - btnTitle: btnTitle description
+    ///   - offsetY: offsetY description
+    ///   - tapAction: tapAction description
+    ///   - btnClickAction: btnClickAction description
+    func showTableEmpty(with image: UIImage?, title: String?, btnTitle: String? = nil, offsetY: CGFloat = 0, tapAction: (()->())?, btnClickAction: (()->())?) {
+        
+        let emptyView = XTEmptyView(image: image, title: title, btnTitle: btnTitle, offsetY:  offsetY, emptyTapAction: tapAction, btnClickAction: btnClickAction)
+        showTableEmpty(emptyView)
+    }
+    
+    func showTableEmpty(_ emptyView: XTEmptyView, updateFrameBlock: ((CGRect, UIView)->(CGRect))? = nil) {
+        
+        let block = updateFrameBlock ?? {
+            // 自动矫正
+            let width = $0.width
+            let x: CGFloat = 0
+            var y: CGFloat = 0
+            var height = $0.height
+            
+            if let tableV = $1 as? UITableView {
+                y += tableV.tableHeaderView?.frame.height ?? 0
+                height -= (tableV.tableHeaderView?.frame.height ?? 0) + (tableV.tableFooterView?.frame.height ?? 0)
+            }
+            return CGRect(x: x, y: y, width: width, height: height)
+        }
+        showEmpty(emptyView, updateFrameBlock: block)
+    }
+}
+
+import SnapKit
 
 class XTEmptyView: UIView {
     
@@ -45,8 +123,7 @@ class XTEmptyView: UIView {
     private var emptyTapAction: (()->())?
     private var btnClickAction: (()->())?
     
-    
-    init(image: UIImage?, title: String?, btnTitle: String?, offsetY: CGFloat = 0, emptyTapAction: (()->())?, btnClickAction: (()->())?) {
+    fileprivate init(image: UIImage?, title: String?, btnTitle: String?, offsetY: CGFloat = 0, emptyTapAction: (()->())?, btnClickAction: (()->())?) {
         
         super.init(frame: .zero)
         self.image = image
@@ -200,6 +277,5 @@ class XTEmptyView: UIView {
             }
         }
     }
-    
-
 }
+

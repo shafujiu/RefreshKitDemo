@@ -23,18 +23,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        view.backgroundColor = .orange
+        tableView.tableHeaderView = view
         
-        
-//        tableView.beginRefreshingData()
+        tableView.beginRefreshingData()
         
 //        _ = EmptyView(image: UIImage(named: "placeholder_empty"), title: "没有更多数据了", btnTitle: "刷新,数据了,数据了,数据了", emptyTapAction: nil)
 //        self.view.addSubview(empty)
         
-        self.tableView.showEmpty(with: UIImage(named: "placeholder_empty"), title: "没有更多数据了", btnTitle: "刷新,数据了,数据了,数据了", offsetY: 0, tapAction: {
-            print("tap")
-        }, btnClickAction: {
-            print("click")
-        })
+        
+        
+        
+//        self.tableView.showEmpty(with: UIImage(named: "placeholder_empty"), title: "没有更多数据了", offsetY: 0, tapAction: {
+//            print("tap")
+//        }, btnClickAction: {
+//            print("click")
+//        })
         
             
         
@@ -64,7 +69,7 @@ extension ViewController: RefreshTableViewDelegate {
     func tableView(_ tableView: RefreshTableView, pageIndex: Int, complation: @escaping (RefreshTableView.Response) -> ()) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2) {
             
-            complation(.success([1,2,], pageIndex != 1))
+            complation(.success([], pageIndex != 1))
         }
     }
     

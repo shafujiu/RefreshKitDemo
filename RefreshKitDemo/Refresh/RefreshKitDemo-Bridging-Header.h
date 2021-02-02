@@ -3,4 +3,3 @@
 //
 
 #import <MJRefresh.h>
-#import "UIView+Blank.h"
