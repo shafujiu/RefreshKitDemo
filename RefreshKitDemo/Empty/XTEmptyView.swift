@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 
-class EmptyView: UIView {
+class XTEmptyView: UIView {
     
     private var kContentSpace: CGFloat = 20
     
@@ -129,7 +129,7 @@ class EmptyView: UIView {
     }
     
     private func addTitleLbl() {
-        if let title = self.title {
+        if let title = self.title, title.count > 0 {
             self.titleLbl.text = title
             if contentStack.arrangedSubviews.contains(self.titleLbl) {
                 return
@@ -139,7 +139,7 @@ class EmptyView: UIView {
     }
 
     private func addBtn() {
-        if let btnT = self.btnTitle {
+        if let btnT = self.btnTitle, btnT.count > 0 {
             
             self.bottomView.btn.setTitle(btnT, for: .normal)
             if contentStack.arrangedSubviews.contains(self.bottomView) {
